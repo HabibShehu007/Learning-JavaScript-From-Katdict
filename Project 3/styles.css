@@ -1,0 +1,228 @@
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: #333;
+}
+
+.todo-app {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* Input Section */
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#task-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+#task-input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+#due-date {
+  padding: 11px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+}
+
+#add-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+#add-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#filter {
+  padding: 10px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+}
+
+#clear-all {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+#clear-all:hover {
+  background-color: #c0392b;
+}
+
+/* Task List */
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#task-list li {
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#task-list li:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+#task-list li span {
+  flex: 1;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
+.due-date {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-right: 10px;
+  background-color: #f0f3f4;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+/* Task Buttons */
+.complete-btn, .delete-btn {
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.complete-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.complete-btn:hover {
+  background-color: #27ae60;
+  transform: scale(1.1);
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.1);
+}
+
+/* Completed Tasks */
+.completed {
+  position: relative;
+  opacity: 0.7;
+}
+
+.completed span:first-child {
+  text-decoration: line-through;
+  color: #95a5a6;
+}
+
+.completed::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: 50%;
+  height: 1px;
+  background-color: #bdc3c7;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .todo-app {
+    padding: 15px;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  #task-input, #due-date, #add-btn {
+    width: 100%;
+  }
+  
+  .controls {
+    flex-direction: column;
+  }
+}
